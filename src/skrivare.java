@@ -1,26 +1,24 @@
-import java.io.*;
-import java.util.concurrent.ThreadLocalRandom;
-
 /**
- * Skapat februari 2022-02-03 - 13:07
- * skrivare
+ * Skapat januari 2022-01-17 - 08:36
+ * nummer
  * Skriven av coolingen
  */
-public class skrivare {
+import java.io.*;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+class skrivare {
+    public static void main(String[] args) throws FileNotFoundException {
+        yes myObj = new yes();
+        System.out.println();
         String binnamn = "binartal.txt";
         String talnamn = "nummertal.txt";
-        DataOutputStream binSkriv;
+        try {
 
-        public skrivare() {
-            try {
+            DataOutputStream binSkriv = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(binnamn)));
 
-                binSkriv = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(binnamn)));
+            PrintWriter talSkriv = new PrintWriter( new FileWriter(talnamn));
 
-                PrintWriter talSkriv = new PrintWriter(new FileWriter(talnamn));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
             for (int i = 0; i < 1000; i++) {
                 int r = ThreadLocalRandom.current().nextInt(0,1000);
 
